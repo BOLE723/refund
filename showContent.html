@@ -9,11 +9,14 @@
         .container {
             position: relative;
             display: inline-block;
+            width: 100%;
+            height: 100vh;
         }
         /* 设置图片的样式 */
         .image {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         /* 设置文字的样式 */
         .text {
@@ -21,17 +24,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;  /* 设置文字颜色 */
+            color: white;
             font-size: 24px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* 增加文字阴影使其更清晰 */
             text-align: center;
-            max-width: 90%;  /* 防止文字太长而溢出 */
+            max-width: 90%;
         }
     </style>
 </head>
 <body>
-    <h2>展示图片和文字</h2>
-
     <div class="container">
         <!-- 动态加载图片 -->
         <img id="image" class="image" src="" alt="Image">
@@ -41,7 +42,7 @@
 
     <script>
         window.onload = function() {
-            // 获取URL中的查询参数
+            // 获取 URL 中的查询参数
             var params = new URLSearchParams(window.location.search);
             var imageUrl = params.get("image");
             var textContent = params.get("text");
